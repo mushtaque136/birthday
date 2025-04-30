@@ -378,59 +378,28 @@ function setupRSVPForm() {
   }
 }
 
-// Setup image carousel
+// Replace the existing setupCarousel function with this:
+
 function setupCarousel() {
-  const slides = document.querySelectorAll('.carousel-slide');
+  const memoriesGrid = document.querySelector('.memories-grid');
+  const slides = document.querySelectorAll('.memories-slide');
   const indicators = document.querySelectorAll('.carousel-indicators button');
   const prevButton = document.getElementById('prevButton');
   const nextButton = document.getElementById('nextButton');
   
-  if (slides.length === 0) return;
+  if (!memoriesGrid || slides.length === 0) return;
   
-  // Show the initial slide
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+  
+  // Show initial slide
   showSlide(0);
   
-  // Add click event listeners to indicators
-  indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-      goToSlide(index);
-    });
-  });
-  
-  // Update previous and next button states
-  function updateButtonStates() {
-    if (prevButton) {
-      prevButton.disabled = currentSlide === 0;
-      prevButton.style.opacity = currentSlide === 0 ? '0.5' : '1';
-    }
-    
-    if (nextButton) {
-      nextButton.disabled = currentSlide === slides.length - 1;
-      nextButton.style.opacity = currentSlide === slides.length - 1 ? '0.5' : '1';
-    }
-  }
-  
-  // Initialize button states
-  updateButtonStates();
-  
-  // Add these functions to the global scope so they can be called from HTML
-  window.goToSlide = function(index) {
-    showSlide(index);
-  };
-  
-  window.moveSlide = function(step) {
-    showSlide(currentSlide + step);
-  };
-  
-  // Function to show a specific slide
   function showSlide(index) {
-    if (index < 0 || index >= slides.length) return;
+    if (index < 0 || index >= totalSlides) return;
     
-    // Hide all slides
-    slides.forEach(slide => {
-      slide.style.visibility = 'hidden';
-      slide.style.opacity = '0';
-    });
+    // Update transform to slide
+    memoriesGrid.style.transform = `translateX(-${index * (100 / totalSlides)}%)`;
     
     // Update indicators
     indicators.forEach((indicator, i) => {
@@ -445,16 +414,31 @@ function setupCarousel() {
       }
     });
     
-    // Show the selected slide
-    slides[index].style.visibility = 'visible';
-    slides[index].style.opacity = '1';
-    
-    // Update current slide index
+    // Update current slide
     currentSlide = index;
     
     // Update button states
-    updateButtonStates();
+    prevButton.style.opacity = currentSlide === 0 ? '0.5' : '1';
+    nextButton.style.opacity = currentSlide === totalSlides - 1 ? '0.5' : '1';
+    prevButton.disabled = currentSlide === 0;
+    nextButton.disabled = currentSlide === totalSlides - 1;
   }
+  
+  // Navigation functions
+  window.goToSlide = function(index) {
+    showSlide(index);
+  };
+  
+  window.moveSlide = function(step) {
+    showSlide(currentSlide + step);
+  };
+  
+  // Add click event listeners to indicators
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      goToSlide(index);
+    });
+  });
 }
 
 // Create 3D card effects for highlight cards
@@ -1232,4 +1216,21 @@ function setupFadeInAnimations() {
   fadeElements.forEach(element => {
     observer.observe(element);
   });
+}
+function openLid() {
+  const lid = document.getElementById("boxLid");
+  const box = document.getElementById("boxContainer");
+  const message = document.getElementById("secretMessage");
+
+  // Flip lid open
+  lid.style.transform = "rotateX(-120deg)";
+  
+  // Animate box back
+  box.querySelector(".box-body").style.transform = "rotateY(180deg)";
+
+  // Hide box after flip
+  setTimeout(() => {
+    box.style.display = "none";
+    message.classList.remove("hidden");
+  }, 1000);
 }
