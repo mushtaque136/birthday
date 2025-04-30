@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Base/ground -->
+  <ellipse cx="200" cy="330" rx="180" ry="30" fill="#c6f6e5" />
+  
+  <!-- Main castle body -->
+  <path d="M130 180 L130 280 L270 280 L270 180 C270 180 250 140 200 140 C150 140 130 180 130 180 Z" fill="#f8bbec" />
+  
+  <!-- Castle top -->
+  <path d="M120 180 L200 100 L280 180 Z" fill="#b89af5" />
+  
+  <!-- Corner towers -->
+  <!-- Tower 1 -->
+  <rect x="100" y="200" width="30" height="80" rx="5" fill="#fadadd" />
+  <path d="M100 200 L115 170 L130 200 Z" fill="#ffc53d" />
+  
+  <!-- Tower 2 -->
+  <rect x="270" y="200" width="30" height="80" rx="5" fill="#fadadd" />
+  <path d="M270 200 L285 170 L300 200 Z" fill="#ffc53d" />
+  
+  <!-- Tower 3 -->
+  <rect x="100" y="150" width="20" height="50" rx="3" fill="#fadadd" />
+  <path d="M100 150 L110 130 L120 150 Z" fill="#ffc53d" />
+  
+  <!-- Tower 4 -->
+  <rect x="280" y="150" width="20" height="50" rx="3" fill="#fadadd" />
+  <path d="M280 150 L290 130 L300 150 Z" fill="#ffc53d" />
+  
+  <!-- Door -->
+  <rect x="185" y="230" width="30" height="50" rx="10" fill="#b7734f" />
+  <circle cx="195" cy="255" r="3" fill="gold" />
+  
+  <!-- Windows -->
+  <rect x="150" y="200" width="15" height="20" rx="5" fill="#e6f7ff" />
+  <rect x="235" y="200" width="15" height="20" rx="5" fill="#e6f7ff" />
+  <rect x="170" y="170" width="15" height="15" rx="5" fill="#e6f7ff" />
+  <rect x="215" y="170" width="15" height="15" rx="5" fill="#e6f7ff" />
+  <rect x="193" y="140" width="15" height="15" rx="7" fill="#e6f7ff" />
+  
+  <!-- Flags -->
+  <line x1="110" y1="170" x2="110" y2="140" stroke="#fff" stroke-width="2" />
+  <path d="M110 140 L130 150 L110 160 Z" fill="#f759ab" />
+  
+  <line x1="290" y1="170" x2="290" y2="140" stroke="#fff" stroke-width="2" />
+  <path d="M290 140 L310 150 L290 160 Z" fill="#69c0ff" />
+  
+  <line x1="200" y1="100" x2="200" y2="80" stroke="#fff" stroke-width="2" />
+  <path d="M200 80 L220 90 L200 100 Z" fill="#ffd666" />
+  
+  <!-- Decorative elements -->
+  <circle cx="130" cy="310" r="8" fill="#9254de" opacity="0.7" />
+  <circle cx="160" cy="320" r="10" fill="#9254de" opacity="0.7" />
+  <circle cx="200" cy="325" r="12" fill="#9254de" opacity="0.7" />
+  <circle cx="240" cy="320" r="10" fill="#9254de" opacity="0.7" />
+  <circle cx="270" cy="310" r="8" fill="#9254de" opacity="0.7" />
+  
+  <!-- Sparkles -->
+  <path d="M140 130 L143 140 L150 143 L143 146 L140 156 L137 146 L130 143 L137 140 Z" fill="gold" opacity="0.8" />
+  <path d="M260 130 L263 140 L270 143 L263 146 L260 156 L257 146 L250 143 L257 140 Z" fill="gold" opacity="0.8" />
+  <path d="M200 60 L203 70 L210 73 L203 76 L200 86 L197 76 L190 73 L197 70 Z" fill="gold" opacity="0.8" />
+</svg>
