@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Princess+Sofia&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap" rel="stylesheet">
   
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
@@ -25,11 +26,9 @@
   <div class="container text-center">
     <div class="welcome-content relative z-10">
       <h1 class="heading-title mb-6 text-primary">
-        <span class="letter-animation">You're Invited to</span>
-        <br />
-        <span class="letter-animation">Princess Madiha Naaz's</span>
-        <br />
-        <span class="letter-animation">First Birthday!</span>
+        <div class="letter-animation">You're Invited to</div>
+        <div class="letter-animation">Princess Madiha Naaz's</div>
+        <div class="letter-animation">First Birthday!</div>
       </h1>
       
       <div class="princess-container relative mt-8 mb-8">
@@ -95,18 +94,18 @@
           <!-- Date & Time Card -->
           <div class="grid-item pink-card">
             <div class="icon">&#128197;</div>
-            <h3>Date & Time</h3>
-            <p class="main">May 17, 2025</p>
-            <p>11:00 AM onwards</p>
+            <h2>Date & Time</h3>
+            <p class="main">May 17, 2025</p> 
+            <p class="main">11:00 AM onwards</p>
           </div>
       
           <!-- Venue Card -->
           <div class="grid-item purple-card">
             <div class="icon">&#127970;</div>
-            <h3>Venue</h3>
+            <h2>Venue</h2>
             <p class="main">Sria Banquet Hall</p>
-            <p>1st Floor, Miyapur</p>
-            <p>Hyderabad - 500050</p>
+            <p class="main">1st Floor, Miyapur</p>
+            <p class="main">Hyderabad - 500050</p>
             <div class="image-wrapper">
               <img src="images/madiha_naaz_event_qr.png" alt="Directions to Venue" class="venue-map">
             </div>
@@ -137,15 +136,17 @@
             <div class="label">Open box Lock!</div>
           </div>
       
-          <div id="secretMessage" class="message-card hidden">
-            <p>
-              Guess what? I'm turning 1 on May 14th! 🥳 <br>
-              But... my mommy and daddy are throwing the party on May 17th. <br>
-              Why? Because it's the weekend and all the uncles, aunties, and their cute babies can join too! 💕 <br>
-              So pleaaaase come! I'm even giving up my real birthday just to party with YOU! <br>
-              Hehe 😄 See you at the celebration!
-            </p>
+          <div id="secretMessage" class="secret-message hidden">
+            
+            I'm hitting the big O-N-E on May 14th! 🎉
+            But the real party? It’s going down on May 17th—because weekends = more snacks, more cuddles, and way more aunties with babies! 👶💃
+            So cancel your plans (even if they were epic), ‘cause I’m postponing my birthday just for YOU.
+            Come party with me—I’ll bring the drool, you bring the vibes! 😄🎂
+            
+            
+        
           </div>
+         
         </div>
       </section>
       
@@ -196,107 +197,7 @@
       </div>
     </section>
     
-      <!-- Gallery Section -->
-      <section id="gallery" class="section">
-  <div class="container">
-    <h2 class="text-center mb-8 fade-in">Memories</h2>
-    
-    <div class="carousel-container relative mt-8">
-      <!-- Navigation buttons -->
-      <button 
-        class="carousel-nav carousel-prev absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 shadow-md"
-        onclick="moveSlide(-1)"
-        aria-label="Previous images"
-        id="prevButton"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-      
-      <button 
-        class="carousel-nav carousel-next absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 shadow-md"
-        onclick="moveSlide(1)"
-        aria-label="Next images"
-        id="nextButton"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
-
-      <!-- Image grid -->
-      <div class="carousel-slides relative overflow-hidden rounded-lg shadow-lg">
-  <div class="memories-grid transition-transform duration-500 ease-in-out flex">
-    <!-- First set of 4 images -->
-    <div class="memories-slide grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
-      <div class="memory-card">
-        <img src="images/madiha_photo/IMG20240605173408.jpg" alt="Madiha's Memory" loading="lazy">
-      </div>
-      <div class="memory-card">
-        <img src="images/madiha_photo/IMG20240814123707.jpg" alt="Madiha's Memory" loading="lazy">
-      </div>
-      <div class="memory-card">
-        <img src="images/madiha_photo/IMG20240830230716.jpg" alt="Madiha's Memory" loading="lazy">
-      </div>
-      <div class="memory-card">
-        <img src="images/madiha_photo/IMG20240905152415.jpg" alt="Madiha's Memory" loading="lazy">
-      </div>
-    </div>
-    
-    <!-- Second set of 4 images -->
-    <div class="memories-slide grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
-      <div class="memory-card">
-        <img src="images/madiha_photo/IMG20240924174123.jpg" alt="Madiha's Memory" loading="lazy">
-      </div>
-      <div class="memory-card">
-        <img src="images/madiha_photo/IMG20241019143904.jpg" alt="Madiha's Memory" loading="lazy">
-      </div>
-      <div class="memory-card">
-        <img src="images/madiha_photo/IMG20241110121532.jpg" alt="Madiha's Memory" loading="lazy">
-      </div>
-      <div class="memory-card">
-        <img src="images/madiha_photo/IMG20241123162356.jpg" alt="Madiha's Memory" loading="lazy">
-      </div>
-    </div>
-    
-    <!-- Third set of 4 images -->
-    <div class="memories-slide grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
-      <div class="memory-card">
-        <img src="images/madiha_photo/IMG20250105113816.jpg" alt="Madiha's Memory" loading="lazy">
-      </div>
-      <div class="memory-card">
-        <img src="images/madiha_photo/IMG20250118145239.jpg" alt="Madiha's Memory" loading="lazy">
-      </div>
-      <div class="memory-card">
-        <img src="images/madiha_photo/IMG20250406221742.jpg" alt="Madiha's Memory" loading="lazy">
-      </div>
-      <div class="memory-card">
-        <img src="images/madiha_photo/IMG20250420181825.jpg" alt="Madiha's Memory" loading="lazy">
-      </div>
-    </div>
-  </div>
-</div>
-
-      
-      <!-- Carousel indicators -->
-      <div class="carousel-indicators flex justify-center mt-4 space-x-2">
-      <!-- Carousel indicators -->
-      <div class="carousel-indicators flex justify-center mt-4 space-x-2">
-        <button class="h-2 rounded-full w-8 bg-primary" data-index="0" onclick="goToSlide(0)"></button>
-        <button class="h-2 rounded-full w-2 bg-primary/30" data-index="1" onclick="goToSlide(1)"></button>
-        <button class="h-2 rounded-full w-2 bg-primary/30" data-index="2" onclick="goToSlide(2)"></button>
-      </div>
-    </div>
-    
-    <div class="text-center mt-6">
-      <p class="text-lg italic text-secondary">
-        Growing moments, precious memories! 💖
-      </p>
-    </div>
-  </div>
-</section>
-
+ 
       <!-- RSVP Section -->
       <section id="rsvp" class="section">
         <div class="container">

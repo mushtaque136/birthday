@@ -286,29 +286,7 @@ p {
   background: radial-gradient(circle at center, rgba(255,215,0,0.8), rgba(255,255,255,0));
   mix-blend-mode: screen;
 }
-/* Letter animations */
-.letter-animation {
-  display: inline-block;
-}
 
-.letter-animation span {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(20px) rotateX(90deg);
-  animation: revealLetter 0.5s forwards;
-}
-
-.letter-animation:nth-child(1) span {
-  animation-delay: calc(var(--char-index) * 0.05s);
-}
-
-.letter-animation:nth-child(2) span {
-  animation-delay: calc(0.5s + var(--char-index) * 0.05s);
-}
-
-.letter-animation:nth-child(3) span {
-  animation-delay: calc(1s + var(--char-index) * 0.05s);
-}
 
 /* Added space between elements */
 .heading-title {
@@ -331,7 +309,19 @@ p {
   }
 }
 
-
+/* Add spacing and line breaks for the invitation text */
+.letter-animation {
+  display: block; /* Ensure each line is treated as a block */
+  font-family: 'Princess Sofia', cursive; /* Example font */
+  font-size: 3rem; /* Adjust size as needed */
+  color: #ff69b4; /* Optional: Add a color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow */
+  line-height: 1.8; /* Add spacing between lines */
+  margin-bottom: 1rem; /* Add spacing between blocks */
+  text-align: center; /* Center-align the text */
+  word-spacing: 0.3rem; /* Add spacing between words */
+  letter-spacing: 0.05em; /* Add slight spacing between letters */
+}
 
 /* Floating Animation */
 .floating-element {
@@ -1735,12 +1725,34 @@ h2 {
 
 /* Card Base */
 .grid-item {
-  background-color: #ffffff;
-  border-radius: 15px;
-  padding: 24px;
-  text-align: center;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center vertically */
+  text-align: center; /* Center text horizontally */
+  height: 100%; /* Ensure the card takes full height */
+  padding: 1.5rem; /* Add some padding */
+  border-radius: 12px; /* Rounded corners */
+  background: linear-gradient(135deg, #ffe6f0, #fce4ec); /* Gradient background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.grid-item h3 {
+  font-size: 1.5rem;
+  color: #d6336c; /* Vibrant color for the heading */
+  margin-bottom: 0.5rem;
+}
+
+.grid-item p {
+  font-size: 1.2rem;
+  color: #555; /* Subtle color for text */
+  margin: 0.2rem 0;
 }
 
 /* Theme Styles */
@@ -1859,3 +1871,104 @@ h2 {
   .delay-2000 { animation-delay: 2s; }
   .delay-3000 { animation-delay: 3s; }
   .delay-4000 { animation-delay: 4s; }
+
+/* Secret Message Styling */
+.secret-message {
+  font-family: 'Tangerine', cursive; /* Playful and elegant font */
+  font-size: 2rem; /* Adjust size for readability */
+  color: #d6336c; /* Vibrant pink color */
+  text-align: center; /* Center-align the text */
+  line-height: 1.8; /* Add spacing between lines */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  background: linear-gradient(135deg, #ffe6f0, #fff0f5); /* Gradient background */
+  padding: 1.5rem;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  animation: fadeInUp 1s ease forwards; /* Smooth fade-in animation */
+}
+
+/* Add glowing effect */
+.secret-message:hover {
+  text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+  transform: scale(1.05); /* Slight zoom on hover */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure animations work on mobile devices */
+
+/* General fix for animations */
+@media (max-width: 768px) {
+  .floating-element {
+    animation: float-mobile 3s ease-in-out infinite;
+  }
+
+  .bounce-animation {
+    animation: bounce-mobile 2s ease infinite;
+  }
+
+  .sparkle {
+    animation: sparkle-mobile 2s infinite alternate;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+}
+
+/* Mobile-specific animations */
+@keyframes float-mobile {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce-mobile {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes sparkle-mobile {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Ensure parallax works on mobile */
+.parallax {
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+}
+
+/* Smooth transition for floating elements */
+.floating-element, .sparkle {
+  transition: transform 0.2s ease-out;
+}

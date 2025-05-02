@@ -1191,32 +1191,36 @@ function setupFairyDustCursor() {
   animateFairyDust();
 }
 
-// Setup fade-in animations for elements as they enter the viewport
+// Ensure fade-in animations work on mobile
 function setupFadeInAnimations() {
   const fadeElements = document.querySelectorAll('.fade-in');
-  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Add animate class when element enters viewport
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateY(0)';
         entry.target.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-        
-        // Stop observing the element after it's animated
         observer.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.1,  // Trigger when 10% of the element is visible
-    rootMargin: '0px 0px -100px 0px'  // Trigger before the element fully enters viewport
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
   });
-  
-  // Observe all fade elements
+
   fadeElements.forEach(element => {
     observer.observe(element);
   });
 }
+
+// Ensure touch events trigger animations
+document.addEventListener('touchstart', () => {
+  const floatingElements = document.querySelectorAll('.floating-element');
+  floatingElements.forEach(el => {
+    el.style.animationPlayState = 'running';
+  });
+});
 function openLid() {
   const lid = document.getElementById("boxLid");
   const box = document.getElementById("boxContainer");
@@ -1234,3 +1238,22 @@ function openLid() {
     message.classList.remove("hidden");
   }, 1000);
 }
+
+// Function to handle mouse or touch movement
+function handleMovement(event) {
+  const x = event.touches ? event.touches[0].clientX : event.clientX;
+  const y = event.touches ? event.touches[0].clientY : event.clientY;
+
+  const elements = document.querySelectorAll('.floating-element, .sparkle');
+  elements.forEach((el) => {
+    const speed = el.dataset.speed || 10;
+    const xOffset = (window.innerWidth / 2 - x) / speed;
+    const yOffset = (window.innerHeight / 2 - y) / speed;
+
+    el.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+  });
+}
+
+// Add event listeners for both mouse and touch events
+document.addEventListener('mousemove', handleMovement);
+document.addEventListener('touchmove', handleMovement);
