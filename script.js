@@ -1222,21 +1222,24 @@ document.addEventListener('touchstart', () => {
   });
 });
 function openLid() {
-  const lid = document.getElementById("boxLid");
-  const box = document.getElementById("boxContainer");
-  const message = document.getElementById("secretMessage");
+  const boxLid = document.getElementById('boxLid');
+  const secretMessage = document.getElementById('secretMessage');
+  const translateButton = document.getElementById('translateButton');
+  const translatedText = document.getElementById('translatedText');
 
-  // Flip lid open
-  lid.style.transform = "rotateX(-120deg)";
-  
-  // Animate box back
-  box.querySelector(".box-body").style.transform = "rotateY(180deg)";
+  // Animate the box lid opening
+  boxLid.style.transform = 'rotateX(180deg)';
+  boxLid.style.transition = 'transform 0.5s ease';
 
-  // Hide box after flip
+  // Show the secret message
   setTimeout(() => {
-    box.style.display = "none";
-    message.classList.remove("hidden");
-  }, 1000);
+    secretMessage.classList.remove('hidden');
+  }, 500);
+
+  // Add event listener for the translate button
+  translateButton.addEventListener('click', () => {
+    translatedText.classList.toggle('hidden');
+  });
 }
 
 // Function to handle mouse or touch movement
@@ -1257,3 +1260,79 @@ function handleMovement(event) {
 // Add event listeners for both mouse and touch events
 document.addEventListener('mousemove', handleMovement);
 document.addEventListener('touchmove', handleMovement);
+
+
+
+// // Logic for toggling between image and translated text
+// document.getElementById('translateButton').addEventListener('click', () => {
+//   const messageImage = document.getElementById('messageImage');
+//   const translatedText = document.getElementById('translatedText');
+//   const translateButton = document.getElementById('translateButton');
+//   const showImageButton = document.getElementById('showImageButton');
+//   translatedText.classList.remove('hidden'); // Remove hidden class to show the text
+//   // Remove the hidden class and toggle visibility
+//   messageImage.classList.add('hidden'); // Add hidden class to hide the image
+ 
+//   translateButton.style.display = 'none'; // Hide the Translate button
+//   showImageButton.style.display = 'inline-block'; // Show the Show Image button
+// });
+
+// document.getElementById('showImageButton').addEventListener('click', () => {
+//   const messageImage = document.getElementById('messageImage');
+//   const translatedText = document.getElementById('translatedText');
+//   const translateButton = document.getElementById('translateButton');
+//   const showImageButton = document.getElementById('showImageButton');
+
+//   // Remove the hidden class and toggle visibility
+//   messageImage.classList.remove('hidden'); // Remove hidden class to show the image
+//   translatedText.classList.add('hidden'); // Add hidden class to hide the text
+//   translateButton.style.display = 'inline-block'; // Show the Translate button
+//   showImageButton.style.display = 'none'; // Hide the Show Image button
+// });
+
+// Logic for toggling between image and translated text
+document.getElementById('translateButton').addEventListener('click', () => {
+  const messageImage = document.getElementById('messageImage');
+  const translatedText = document.getElementById('translatedText');
+  const translateButton = document.getElementById('translateButton');
+  const showImageButton = document.getElementById('showImageButton');
+
+  // Show translated text
+  translatedText.style.display = 'block';
+  translatedText.style.visibility = 'visible';
+  translatedText.style.opacity = '1';
+  translatedText.classList.remove('hidden');
+  
+  // Hide image
+  messageImage.style.display = 'none';
+  messageImage.style.visibility = 'hidden';
+  messageImage.style.opacity = '0';
+  messageImage.classList.add('hidden');
+  
+  // Toggle buttons
+  translateButton.style.display = 'none';
+  showImageButton.style.display = 'inline-block';
+});
+
+document.getElementById('showImageButton').addEventListener('click', () => {
+  const messageImage = document.getElementById('messageImage');
+  const translatedText = document.getElementById('translatedText');
+  const translateButton = document.getElementById('translateButton');
+  const showImageButton = document.getElementById('showImageButton');
+
+  // Show image
+  messageImage.style.display = 'block';
+  messageImage.style.visibility = 'visible';
+  messageImage.style.opacity = '1';
+  messageImage.classList.remove('hidden');
+  
+  // Hide text
+  translatedText.style.display = 'none';
+  translatedText.style.visibility = 'hidden';
+  translatedText.style.opacity = '0';
+  translatedText.classList.add('hidden');
+  
+  // Toggle buttons
+  translateButton.style.display = 'inline-block';
+  showImageButton.style.display = 'none';
+});
